@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Purle</string>
+    <string name="pass">Pass</string>
+    <string name="username">E-Mail</string>
+    <string name="register">Register</string>
+    <string name="log_in_button">Log in</string>
+
+
+</resources>

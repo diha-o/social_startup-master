@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFE5E5E5"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout2"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout2"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        android:layout_weight="0"
+        android:layout_gravity="center"
+        app:cardCornerRadius="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:text=" Registration form, please fill all fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textSize="18sp"
+                android:textStyle="normal|bold"
+                android:padding="20dp"
+                android:visibility="visible"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_below="@id/textView2"
+                android:layout_weight="1"
+                android:id="@+id/text_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextLabel"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColorHint="@color/textHintColor">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/register_nick_name"
+                    android:layout_weight="1"
+                    android:hint="Name"
+                    android:theme="@style/AppTheme"
+                    android:textSize="16sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_weight="1"
+                android:layout_below="@+id/text_input_name"
+                android:id="@+id/text_input_below"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextLabel"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColorHint="@color/textHintColor">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/register_mail"
+                    android:layout_weight="1"
+                    android:hint="E-mail"
+                    android:theme="@style/AppTheme"
+                    android:textSize="16sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_weight="1"
+                android:layout_below="@+id/text_input_below"
+                android:id="@+id/text_input_below_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextLabel"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColorHint="@color/textHintColor">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/register_pass"
+                    android:hint="Pass"
+                    android:layout_weight="1"
+                    android:theme="@style/AppTheme"
+                    android:textSize="16sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:layout_weight="1"
+                android:layout_below="@+id/text_input_below_2"
+                android:text="Register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_register"
+                android:layout_alignRight="@id/text_input_below_2"
+                android:layout_alignStart="@id/text_input_below_2"
+                android:minHeight="49dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:theme="@style/AppTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textStyle="normal|bold"
+                android:visibility="gone" />
+            <LinearLayout
+                android:layout_below="@+id/text_input_below_2"
+                android:id="@+id/radio_group_pol"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:paddingRight="20dp">
+
+
+                <TextView
+                    android:text="By registering an account, you automatically agree that you are over 18 years old. The developer is not responsible for all actions committed by the application users."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:textSize="10sp"
+                    android:textColor="#212121"
+                    android:paddingLeft="6dp"
+                    android:textStyle="normal|bold"
+                    android:paddingBottom="8dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radio_group_pol"
+                android:background="@color/greenLight"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:clickable="true"
+                android:id="@+id/registration_layout_btn">
+
+                <TextView
+                    android:text="Register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:padding="18dp"
+                    android:gravity="center_horizontal"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

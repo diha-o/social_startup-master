@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "385499973259",
+    "firebase_url": "https://sexstartup-e3a65.firebaseio.com",
+    "project_id": "sexstartup-e3a65",
+    "storage_bucket": "sexstartup-e3a65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385499973259:android:eca18c6ba8549672",
+        "android_client_info": {
+          "package_name": "pc.dd.sex_startup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385499973259-lgo67t324ptbjs0vi2dpdhjptvh3cn8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pc.dd.sex_startup",
+            "certificate_hash": "12224C5B77773B7B85D29802C309DC6632D3D634"
+          }
+        },
+        {
+          "client_id": "385499973259-332mcg2vt1r5kukitd1hmf1enes5ljqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg4GtTLptk-xE1UwILm7tYDxKgCrt-FwA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385499973259-332mcg2vt1r5kukitd1hmf1enes5ljqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

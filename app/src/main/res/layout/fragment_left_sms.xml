@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/image_left_sms"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_logo_24"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/navigationBarColor"
+        android:transitionName="target2"
+        android:paddingTop="8dp"
+        android:layout_marginLeft="8dp"
+
+        android:layout_marginRight="3dp" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:paddingLeft="2dp">
+
+        <me.himanshusoni.chatmessageview.ChatMessageView
+            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cmv_contentPadding="10dp"
+                app:cmv_backgroundColor="#393d41"
+                app:cmv_backgroundColorPressed="@color/navigationBarColor"
+                app:cmv_cornerRadius="2dp"
+            app:cmv_showArrow="false"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:layout_marginLeft="-2dp">
+
+                <hani.momanii.supernova_emoji_library.Helper.EmojiconTextView
+                    android:text="1Start_text : Start_text : Start_text : Start_text : Start_text : Start_text : Start_text :22 "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_left_sms"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#212121" />
+            </me.himanshusoni.chatmessageview.ChatMessageView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:alpha="0.2">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/greenDarck"
+                android:id="@+id/text_view_nickname"
+                android:textSize="10sp" />
+
+            <TextView
+                android:text="wrote "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"
+                android:layout_marginLeft="8dp"
+                android:textColor="#e2e2e2"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

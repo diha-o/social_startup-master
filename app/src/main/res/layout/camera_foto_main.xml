@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:id="@+id/constraintLayout4"
+    android:foregroundGravity="center"
+    app:layout_anchorGravity="center"
+    app:layout_gravity="center">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="40dp"
+        android:background="@color/greenDarck"
+        android:id="@+id/linearLayout"
+        app:layout_constraintRight_toRightOf="@+id/previous_upload_image"
+        app:layout_constraintLeft_toLeftOf="@+id/previous_upload_image"
+        app:layout_constraintTop_toBottomOf="@+id/previous_upload_image"
+        android:layout_width="0dp"
+        android:gravity="center_vertical|center">
+
+        <ImageView
+            android:id="@+id/disable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/ic_clear_white_24dp"
+            tools:layout_editor_absoluteX="101dp"
+            tools:layout_editor_absoluteY="22dp" />
+
+        <ImageView
+            android:id="@+id/upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/ic_cloud_upload_white_24dp"
+            tools:layout_editor_absoluteX="205dp"
+            tools:layout_editor_absoluteY="22dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/previous_upload_image"
+        android:layout_width="0dp"
+        android:layout_height="511dp"
+        android:layout_marginBottom="40dp"
+        android:scaleType="fitEnd"
+        android:foregroundGravity="bottom"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout4"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout4"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_disabled" />
+
+</android.support.constraint.ConstraintLayout>

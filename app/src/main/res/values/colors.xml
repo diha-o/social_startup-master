@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryDark">#d93576</color>
+    <color name="colorAccent">#F63C85</color>
+    <color name="otherBckColor">#2b2e33</color>
+    <color name="navigationBarColor">#24252a</color>
+    <color name="textHintColor">#616161</color>
+    <color name="greenLight">#06BC99</color>
+    <color name="greenDarck">#019b84</color>
+    <color name="fabColor">#AD1457</color>
+    <color name="transparent">#d6000000</color>
+</resources>

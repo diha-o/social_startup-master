@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/chat_rootView"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:weightSum="1">
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="474dp"
+        android:id="@+id/chat_listView"
+        android:layout_weight="1"
+        android:background="@color/otherBckColor"
+        android:cacheColorHint="@color/colorAccent"
+        android:divider="@color/common_google_signin_btn_text_dark_focused" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="#3f4348"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical|center_horizontal"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_smile_icon"
+            android:id="@+id/jjjjj"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:layout_marginTop="15dp" />
+        <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+            android:id="@+id/emojicon_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            emojicon:emojiconSize="28sp"
+            android:background="#3f4348"
+
+            android:layout_toRightOf="@+id/jjjjj"
+            android:layout_toLeftOf="@+id/btn_send"
+            android:textColor="?android:attr/textColorPrimaryInverseNoDisable"
+            android:textColorHint="#646464"
+            android:lines="8"
+            android:hint="Write here..." />
+
+
+        <hani.momanii.supernova_emoji_library.Helper.EmojiconTextView
+            android:id="@+id/emojicon_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            emojicon:emojiconSize="28sp"/>
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_send_white_24dp"
+            android:id="@+id/btn_send"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:elevation="2dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="centerInside"
+            android:padding="2dp"
+            android:layout_marginBottom="4dp" />
+
+    </RelativeLayout>
+</LinearLayout>

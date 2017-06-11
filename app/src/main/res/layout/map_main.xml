@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="pc.dd.sex_startup.Main.Maps.Map" />
+
+   <!-- <fragment android:name="pc.dd.sex_startup.LogIn.Maps.FragmentImage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fr_image"
+        tools:layout="@layout/fragment_image"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+    </fragment>
+    -->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="320dp"
+        android:id="@+id/container"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"></RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/statbar_container_map">
+
+    </FrameLayout>
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:layout_below="@id/statbar_container_map"
+        android:id="@+id/progressBarMap"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:indeterminate="true"
+        app:mpb_progressStyle="horizontal"
+        app:mpb_useIntrinsicPadding="false"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal" />
+    <ImageView
+        android:transitionName="transition"
+        android:id="@+id/imageMapTransition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

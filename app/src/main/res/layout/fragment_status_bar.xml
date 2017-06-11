@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorAccent"
+        android:id="@+id/statbar"
+        android:layout_height="@dimen/navigation_bar_height">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ic_edit_location_white_24dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/statbar_message"
+            android:id="@+id/statbar_form"
+            android:layout_marginEnd="18dp"
+
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email_white_24dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/statbar_settings"
+            android:layout_marginEnd="18dp"
+            android:id="@+id/statbar_message"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_settings_white_24dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/statbar_settings"
+            android:layout_marginRight="18dp"
+
+            />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/statbar_message"
+            android:layout_alignParentStart="true"
+            android:id="@+id/statbar_text"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/cardview_light_background"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_logo_24"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/statbar_text"
+            android:id="@+id/imageView"
+            android:paddingLeft="-14dp" />
+    </RelativeLayout>
+</LinearLayout>
