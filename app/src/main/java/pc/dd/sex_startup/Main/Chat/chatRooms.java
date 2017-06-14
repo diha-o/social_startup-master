@@ -60,7 +60,7 @@ public class chatRooms extends Activity {
 
     private ArrayList<String> all_uid = new ArrayList<>();
     private ArrayList<String> success_uid = new ArrayList<>();
-    private UserData us ;
+    private UserData userData;
     private  int end_of_itteration;
     private LoadingView progressBar;
 
@@ -91,19 +91,17 @@ public class chatRooms extends Activity {
         user = auth.getCurrentUser();
 
         if (user != null) {
-            us=new UserData();
+            userData =new UserData();
             database = FirebaseDatabase.getInstance();
                     get_all_user(database.getReference());
                     fast_get_innfouser(database.getReference(user.getUid()));
         }
 
 
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                start_new_act(us, success_uid.get(i));
+                start_new_act(userData, success_uid.get(i));
 
             }
         });
@@ -121,7 +119,6 @@ public class chatRooms extends Activity {
 
         startActivity(intent);
         this.overridePendingTransition(R.animator.animation_act_left,R.animator.animation_act_right);
-
         this.finish();
     }
     private void get_all_user(DatabaseReference reference) {
@@ -181,7 +178,7 @@ public class chatRooms extends Activity {
                                     .getValue(); //second user uid, like not me
 
 
-                        if ((!user_name.equals(us.nickname))&&(!temp_nick.contains(user_name))) {
+                        if ((!user_name.equals(userData.nickname))&&(!temp_nick.contains(user_name))) {
                             nick.add(user_name);
                             parent_uid.add(uid);
                             image_profile.add(img_prof);
@@ -239,11 +236,11 @@ private void create_adapter(){
                     for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                         if (temp[0] == 1) {
 
-                            //  us[0] = messageSnapshot.child("UserData data: ").getValue(UserData.class);
+                            //  userData[0] = messageSnapshot.child("UserData data: ").getValue(UserData.class);
                             String url = (String) messageSnapshot.child("url").getValue();
                             String nickname = (String) messageSnapshot.child("nickname").getValue();
-                            us.setNickname(nickname);
-                            us.setUrl(url);
+                            userData.setNickname(nickname);
+                            userData.setUrl(url);
 
                             temp[0] = 2;
                             continue;

@@ -295,11 +295,11 @@ public class Map extends FragmentActivity implements OnMapReadyCallback {
 
         Bundle extras = new Bundle();
         extras.putString("url", myItemContainer.getUrl1());
+        extras.putString("myUid",myItemContainer.getMyuid());
         i.putExtras(extras);
 
         Projection projection = map.getProjection();
         Point screenPosition = projection.toScreenLocation(markerToChange.getPosition());
-
 
         tempImageTransition = (ImageView) findViewById(R.id.imageMapTransition);
         if (tempImageTransition.getVisibility() == View.INVISIBLE)

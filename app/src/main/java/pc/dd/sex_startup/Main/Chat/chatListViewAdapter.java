@@ -32,9 +32,6 @@ public class chatListViewAdapter extends ArrayAdapter<String> {
         this.mContext = context;
         this.nickname = nick;
         this.msg= msg_array;
-   ///     this.clusterm = clusterm;
-   //     this.images_url = get_images_url(clusterm);
-      //  this.userUid = get_user_uid(clusterm);
     }
 
     @Override

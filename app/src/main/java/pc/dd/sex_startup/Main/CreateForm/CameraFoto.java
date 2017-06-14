@@ -146,7 +146,8 @@ public class CameraFoto extends Fragment {
                 DatabaseReference myRef = database.getReference(user.getUid());
                 Map<String, User> users = new HashMap<String, User>();
                 RegisterFragment test = new RegisterFragment();
-                users.put("UserData data: ",
+
+                users.put("User data: ",
                         new User(String.valueOf(latitude) + "/" + String.valueOf(longitude)
                                 , dwndurl[0]
                                 , user.getUid()
