@@ -36,17 +36,17 @@ import pc.dd.sex_startup.R;
 public class mainChat extends FragmentActivity implements EmojiconGridFragment.OnEmojiconClickedListener, EmojiconsFragment.OnEmojiconBackspaceClickedListener {
 
     private ImageView btn_send_msg;
-private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEditText;
+    private hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEditText;
     private TextView chat_conversation;
 
-    private String user_name,uid_name;
-    private DatabaseReference root ;
-    private DatabaseReference second_root ;
+    private String user_name, uid_name;
+    private DatabaseReference root;
+    private DatabaseReference second_root;
     private String temp_key;
     private String img_User;
     private FrameLayout container;
     Boolean second_challenge = false;
-    private  FirebaseUser this_user;
+    private FirebaseUser this_user;
     private ListView listView;
     private ChatArrayAdapter chatArrayAdapter;
     private String first_child;
@@ -60,7 +60,6 @@ private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEd
 
         //set status bar
 
-
         btn_send_msg = (ImageView) findViewById(R.id.btn_send);
         btn_send_msg.animate().rotationXBy(0.8f).setDuration(100).start();
         listView = (ListView) findViewById(R.id.chat_listView);
@@ -68,9 +67,9 @@ private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEd
         listView.setAdapter(chatArrayAdapter);
         listView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
-        emojiconEditText= (hani.momanii.supernova_emoji_library.Helper.EmojiconEditText) findViewById(R.id.emojicon_edit_text);
+        emojiconEditText = (hani.momanii.supernova_emoji_library.Helper.EmojiconEditText) findViewById(R.id.emojicon_edit_text);
         ImageView klef = (ImageView) findViewById(R.id.jjjjj);
-        EmojIconActions emojIcon=new EmojIconActions(this,findViewById(R.id.chat_rootView),emojiconEditText,klef,"#FF1E0412","#eba5bd","#E6EBEF");
+        EmojIconActions emojIcon = new EmojIconActions(this, findViewById(R.id.chat_rootView), emojiconEditText, klef, "#FF1E0412", "#eba5bd", "#E6EBEF");
         emojIcon.ShowEmojIcon();
 
 
@@ -82,16 +81,11 @@ private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEd
         this_user = auth.getCurrentUser();
         //String from_Rooms = getIntent().getExtras().get("from_chatRooms").toString();
 
+        first_child = uid_name;
+        second_child = this_user.getUid();
 
-            first_child = uid_name;
-            second_child=this_user.getUid();
-
-        try {
-            String second_r = getIntent().getExtras().get("root").toString();
-            second_root = FirebaseDatabase.getInstance().getReferenceFromUrl(second_r).child("chat").child(second_child);
-            second_challenge = true;
-        }catch (Exception e){e.printStackTrace();}
-
+        String second_r = getIntent().getExtras().get("root").toString();
+        second_root = FirebaseDatabase.getInstance().getReferenceFromUrl(second_r).child("chat").child(second_child);
 
         root = FirebaseDatabase.getInstance().getReference().child(this_user.getUid()).child("chat").child(first_child);
 
@@ -102,7 +96,7 @@ private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEd
                 set_key_ref();
 
                 this_user();
-                if(second_challenge)
+
                 second_user();
                 emojiconEditText.setText("");
             }
@@ -143,49 +137,51 @@ private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEd
     private void second_user() {
 
         DatabaseReference message_root = second_root.child(temp_key);
-        Map<String,Object> map2 = new HashMap<String, Object>();
-        map2.put("img_prof",img_User);
-        map2.put("name",user_name);
-        map2.put("msg",emojiconEditText.getText().toString());
-        map2.put("this_user_uid",this_user.getUid());
+        Map<String, Object> map2 = new HashMap<String, Object>();
+        map2.put("img_prof", img_User);
+        map2.put("name", user_name);
+        map2.put("msg", emojiconEditText.getText().toString());
+        map2.put("this_user_uid", this_user.getUid());
         message_root.updateChildren(map2);
     }
-    private void set_key_ref(){
 
-        Map<String,Object> map = new HashMap<String, Object>();
+    private void set_key_ref() {
+
+        Map<String, Object> map = new HashMap<String, Object>();
         temp_key = root.push().getKey();
         root.updateChildren(map);
     }
+
     private void this_user() {
 
         DatabaseReference message_root = root.child(temp_key);
-        Map<String,Object> map2 = new HashMap<String, Object>();
-        map2.put("img_prof",img_User);
-        map2.put("name",user_name);
-        map2.put("msg",emojiconEditText.getText().toString());
-        map2.put("this_user_uid",this_user.getUid());
+        Map<String, Object> map2 = new HashMap<String, Object>();
+        map2.put("img_prof", img_User);
+        map2.put("name", user_name);
+        map2.put("msg", emojiconEditText.getText().toString());
+        map2.put("this_user_uid", this_user.getUid());
         message_root.updateChildren(map2);
     }
 
-    private String chat_msg,chat_user_name, chat_user_image,chat_user_uid;
+    private String chat_msg, chat_user_name, chat_user_image, chat_user_uid;
     private Boolean left = true;
 
     private void append_chat_conversation(DataSnapshot dataSnapshot) {
 
         Iterator i = dataSnapshot.getChildren().iterator();
 
-        while (i.hasNext()){
+        while (i.hasNext()) {
 
-            chat_user_image = (String) ((DataSnapshot)i.next()).getValue();
-            chat_msg = (String) ((DataSnapshot)i.next()).getValue();
-            chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
-            chat_user_uid = (String) ((DataSnapshot)i.next()).getValue();
-            if(chat_user_name.equals(user_name)){
+            chat_user_image = (String) ((DataSnapshot) i.next()).getValue();
+            chat_msg = (String) ((DataSnapshot) i.next()).getValue();
+            chat_user_name = (String) ((DataSnapshot) i.next()).getValue();
+            chat_user_uid = (String) ((DataSnapshot) i.next()).getValue();
+            if (chat_user_name.equals(user_name)) {
                 left = false;
-                chatArrayAdapter.add(new ChatMessage(left, chat_msg,null,null));
-            }else{
-                left=true;
-                chatArrayAdapter.add(new ChatMessage(left,  chat_msg, chat_user_image,chat_user_name));
+                chatArrayAdapter.add(new ChatMessage(left, chat_msg, null, null));
+            } else {
+                left = true;
+                chatArrayAdapter.add(new ChatMessage(left, chat_msg, chat_user_image, chat_user_name));
             }
 
         }
@@ -203,14 +199,14 @@ private  hani.momanii.supernova_emoji_library.Helper.EmojiconEditText emojiconEd
 
     }
 
-        @Override
-  public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
 
-            Intent i = new Intent(mainChat.this, pc.dd.sex_startup.Main.Chat.chatRooms.class);
-            startActivity(i);
+        Intent i = new Intent(mainChat.this, pc.dd.sex_startup.Main.Chat.chatRooms.class);
+        startActivity(i);
 
-            this.overridePendingTransition(R.animator.animation_act_left_back,R.animator.animation_act_right_back);
+        this.overridePendingTransition(R.animator.animation_act_left_back, R.animator.animation_act_right_back);
 
-            this.finish();
+        this.finish();
     }
 }

@@ -3,6 +3,7 @@ package pc.dd.sex_startup.Main.Chat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -60,7 +61,7 @@ public class chatRooms extends Activity {
 
     private ArrayList<String> all_uid = new ArrayList<>();
     private ArrayList<String> success_uid = new ArrayList<>();
-    private UserData userData;
+    private UserData us ;
     private  int end_of_itteration;
     private LoadingView progressBar;
 
@@ -91,17 +92,18 @@ public class chatRooms extends Activity {
         user = auth.getCurrentUser();
 
         if (user != null) {
-            userData =new UserData();
+            us=new UserData();
             database = FirebaseDatabase.getInstance();
-                    get_all_user(database.getReference());
                     fast_get_innfouser(database.getReference(user.getUid()));
         }
+
+
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                start_new_act(userData, success_uid.get(i));
+                start_new_act(us, parent_uid.get(i));
 
             }
         });
@@ -119,6 +121,7 @@ public class chatRooms extends Activity {
 
         startActivity(intent);
         this.overridePendingTransition(R.animator.animation_act_left,R.animator.animation_act_right);
+
         this.finish();
     }
     private void get_all_user(DatabaseReference reference) {
@@ -166,6 +169,7 @@ public class chatRooms extends Activity {
 
                         msg = (String) messageSnapshot.child("msg")
                                 .getValue(); //need only last
+                        Log.i("MSG_______",msg);
 
                         user_name = (String) messageSnapshot.child("name")
                                 .getValue(); //second user name
@@ -177,16 +181,18 @@ public class chatRooms extends Activity {
                         uid = (String) messageSnapshot.child("this_user_uid")
                                     .getValue(); //second user uid, like not me
 
-
-                        if ((!user_name.equals(userData.nickname))&&(!temp_nick.contains(user_name))) {
+                        if (messageSnapshot.getChildrenCount()==1){
                             nick.add(user_name);
                             parent_uid.add(uid);
                             image_profile.add(img_prof);
                             temp_nick.add(user_name);
-                        }else
-                        {
-//
-                        }
+                        } else
+                        if ((!user_name.equals(us.nickname))&&(!temp_nick.contains(user_name))) {
+                            nick.add(user_name);
+                            parent_uid.add(uid);
+                            image_profile.add(img_prof);
+                            temp_nick.add(user_name);
+                        };
 
                     }
 
@@ -220,7 +226,12 @@ private void create_adapter(){
     p_uid = new String[parent_uid.size()];
     p_uid = parent_uid.toArray(p_uid);
 
-
+//    for (int i = 0; i<msg_string.length;i++) {
+//        Log.i("MSG----", msg_string[i].toString());
+//        Log.i("nick_string----", nick_string[i].toString());
+//        Log.i("image_string----", image_string[i].toString());
+//        Log.i("p_uid----", p_uid[i].toString());
+//    }
     adapter = new chatListViewAdapter(chatRooms.this, android.R.layout.simple_list_item_1, image_string, msg_string, nick_string); //создали класс адаптера и закинули туда все что нам нужно
     listView.setAdapter(adapter);
     progressBar.setVisibility(View.GONE);
@@ -236,19 +247,19 @@ private void create_adapter(){
                     for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                         if (temp[0] == 1) {
 
-                            //  userData[0] = messageSnapshot.child("UserData data: ").getValue(UserData.class);
+                            //  us[0] = messageSnapshot.child("UserData data: ").getValue(UserData.class);
                             String url = (String) messageSnapshot.child("url").getValue();
                             String nickname = (String) messageSnapshot.child("nickname").getValue();
-                            userData.setNickname(nickname);
-                            userData.setUrl(url);
+                            us.setNickname(nickname);
+                            us.setUrl(url);
 
                             temp[0] = 2;
                             continue;
                         } else {
                         }
                         ;
-
                     }
+                    get_all_user(database.getReference());
 
                 }
 
