@@ -147,7 +147,7 @@ public class CameraFoto extends Fragment {
                 Map<String, User> users = new HashMap<String, User>();
                 RegisterFragment test = new RegisterFragment();
 
-                users.put("User data: ",
+                users.put("User data",
                         new User(String.valueOf(latitude) + "/" + String.valueOf(longitude)
                                 , dwndurl[0]
                                 , user.getUid()

@@ -203,7 +203,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback {
                 for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                     // String latitude_longitude = (String) messageSnapshot.child("UserData data: ").child("lat").getValue();
                     //String url = (String) messageSnapshot.child("url").getValue();
-                    UserData user = messageSnapshot.child("User data: ").getValue(UserData.class);
+                    UserData user = messageSnapshot.child("User data").getValue(UserData.class);
                     Log.d("info:", user.lat + user.url);
                     String[] split = user.lat.split("/");
 

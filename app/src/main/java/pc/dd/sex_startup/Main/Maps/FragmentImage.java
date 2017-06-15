@@ -103,7 +103,7 @@ public class FragmentImage extends Fragment {
 
                 for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                     if(temp[0] == 1){
-                    user[0] = messageSnapshot.child("UserData data: ").getValue(UserData.class);
+                    user[0] = messageSnapshot.child("User data").getValue(UserData.class);
                     String url = (String) messageSnapshot.child("url").getValue();
                     String nickname = (String) messageSnapshot.child("nickname").getValue();
                     createChat(userUid,url,nickname);
