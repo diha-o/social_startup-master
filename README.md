@@ -1,3 +1,5 @@
+https://play.google.com/store/apps/details?id=pc.dd.sex_startup
+
 <b>This is not full version </b>
 
 <image src="https://github.com/diha-o/social_startup/blob/master/app/src/main/res/drawable/gzA-zgXYnHQ.jpg?raw=true"></image>
